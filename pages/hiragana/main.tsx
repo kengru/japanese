@@ -1,26 +1,18 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Hiragana } from "../components/Categories/Hiragana";
-import styles from "../styles/Home.module.css";
+import styles from "../../styles/Home.module.css";
 
-const Home: NextPage = () => {
+const MainKanas: NextPage = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>JPractice</title>
-        <meta
-          name="description"
-          content="Practicing japanese with excercises"
-        />
+        <title>Main Kanas</title>
+        <meta name="description" content="Practicing main kanas" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
         <h1 className={styles.title}>J. Practice</h1>
-
-        <div className={styles.grid}>
-          <Hiragana />
-        </div>
       </main>
 
       <footer className={styles.footer}>
@@ -36,4 +28,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default MainKanas;
