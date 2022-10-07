@@ -1,8 +1,14 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 
+import { GameStateProvider } from "../contexts/GameState";
+
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    <GameStateProvider>
+      <Component {...pageProps} />
+    </GameStateProvider>
+  );
 }
 
 export default MyApp;

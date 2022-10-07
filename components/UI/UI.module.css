@@ -1,0 +1,36 @@
+/* 
+  Guess Card
+*/
+
+.cardsHolder {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 2rem 2rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 9rem;
+  width: 6rem;
+  color: black;
+  font-size: 2rem;
+  background-color: white;
+}
+
+.card h2 {
+  margin: 0;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.card input {
+  font-size: 1.2rem;
+  text-align: center;
+  height: 2rem;
+  width: 4rem;
+}
