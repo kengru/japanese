@@ -6,9 +6,12 @@ import {
   useState
 } from "react";
 
+export type GuessState = "untouched" | "failed" | "solved";
+
 export type Guess = {
   character: string;
   answer: string;
+  state: GuessState;
 };
 
 interface IGameState {
@@ -16,6 +19,7 @@ interface IGameState {
   guesses: Guess[];
   changeGuesses: (guesses: Guess[]) => void;
   changeState: (state: boolean) => void;
+  setGuessState: (char: string, gs: GuessState) => void;
 }
 
 interface IGameStateProvider {
@@ -26,7 +30,8 @@ const GameStateContext = createContext<IGameState>({
   playing: false,
   guesses: [],
   changeGuesses: () => {},
-  changeState: () => {}
+  changeState: () => {},
+  setGuessState: () => {}
 });
 
 export const GameStateProvider: FunctionComponent<IGameStateProvider> = ({
@@ -39,9 +44,23 @@ export const GameStateProvider: FunctionComponent<IGameStateProvider> = ({
     setPlaying(state);
   }, []);
 
-  const changeGuesses = useCallback((guesses: Guess[]) => {
+  const changeGuesses = (guesses: Guess[]) => {
     setGuesses(guesses);
-  }, []);
+  };
+
+  const setGuessState = useCallback(
+    (char: string, gs: GuessState) => {
+      const newGuesses = guesses.map((g) => {
+        if (g.character === char) {
+          return { ...g, state: gs };
+        }
+        return g;
+      });
+
+      setGuesses(newGuesses);
+    },
+    [guesses]
+  );
 
   return (
     <GameStateContext.Provider
@@ -49,7 +68,8 @@ export const GameStateProvider: FunctionComponent<IGameStateProvider> = ({
         playing,
         guesses,
         changeGuesses,
-        changeState
+        changeState,
+        setGuessState
       }}
     >
       {children}

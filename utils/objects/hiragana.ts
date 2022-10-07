@@ -3,73 +3,89 @@ import { Guess } from "../../contexts/GameState";
 export const mainKanas: Guess[] = [
   {
     character: "あ",
-    answer: "a"
+    answer: "a",
+    state: "untouched"
   },
   {
     character: "い",
-    answer: "i"
+    answer: "i",
+    state: "untouched"
   },
   {
     character: "う",
-    answer: "u"
+    answer: "u",
+    state: "untouched"
   },
   {
     character: "え",
-    answer: "e"
+    answer: "e",
+    state: "untouched"
   },
   {
     character: "お",
-    answer: "o"
+    answer: "o",
+    state: "untouched"
   }
 ];
 
 export const dakutenKanas: Guess[] = [
   {
     character: "が",
-    answer: "ga"
+    answer: "ga",
+    state: "untouched"
   },
   {
     character: "ざ",
-    answer: "za"
+    answer: "za",
+    state: "untouched"
   },
   {
     character: "だ",
-    answer: "da"
+    answer: "da",
+    state: "untouched"
   },
   {
     character: "ば",
-    answer: "ba"
+    answer: "ba",
+    state: "untouched"
   },
   {
     character: "ぱ",
-    answer: "pa"
+    answer: "pa",
+    state: "untouched"
   }
 ];
 
 export const combinationKanas: Guess[] = [
   {
     character: "きゃ",
-    answer: "kya"
+    answer: "kya",
+    state: "untouched"
   },
   {
     character: "きゅ",
-    answer: "kyu"
+    answer: "kyu",
+    state: "untouched"
   },
   {
     character: "きょ",
-    answer: "kyo"
+    answer: "kyo",
+    state: "untouched"
   },
   {
     character: "ぎゃ",
-    answer: "gya"
+    answer: "gya",
+    state: "untouched"
   },
   {
     character: "ぎゅ",
-    answer: "gyu"
+    answer: "gyu",
+    state: "untouched"
   },
   {
     character: "ぎょ",
-    answer: "gyo"
+    answer: "gyo",
+    state: "untouched"
   }
 ];
 

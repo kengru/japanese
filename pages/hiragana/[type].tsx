@@ -2,26 +2,38 @@ import { useEffect, useMemo } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { AnimatePresence } from "framer-motion";
 import { GetKanas } from "../../utils/objects/hiragana";
 
 import styles from "../../styles/Home.module.css";
 import { useGameState } from "../../contexts/GameState";
-import { GuessCardHolder } from "../../components/UI/GuessCard";
 import { GuessCard } from "../../components/UI/GuessCard";
+import {
+  PresentGuessCard,
+  PresentGuessCardHolder
+} from "../../components/UI/PresentGuessCard";
 
 const Kanas: NextPage = () => {
   const { asPath } = useRouter();
-  const { guesses, changeGuesses } = useGameState();
-  const path = useMemo(() => asPath.split("/")[2], []);
-  const kanas = useMemo(() => GetKanas(path), [path]);
+  const { guesses, changeGuesses, setGuessState } = useGameState();
+  const path = asPath.split("/")[2];
+  const newKanas = GetKanas(path);
 
   useEffect(() => {
-    changeGuesses(kanas);
+    changeGuesses(newKanas);
   }, []);
 
-  const cards = guesses.map((guess) => {
-    return <GuessCard key={guess.character} {...guess} />;
-  });
+  const presentCards = useMemo(
+    () =>
+      guesses.map((guess) => {
+        return guess.state !== "untouched" ? (
+          <PresentGuessCard key={guess.answer} guess={guess} />
+        ) : null;
+      }),
+    [guesses]
+  );
+
+  const focusedCard = guesses.find((g) => g.state === "untouched");
 
   return (
     <div className={styles.container}>
@@ -29,13 +41,18 @@ const Kanas: NextPage = () => {
         <title>
           {`${path.charAt(0).toLocaleUpperCase()}${path.slice(1)}`} Kanas
         </title>
-        <meta name="description" content="Practicing main kanas" />
+        <meta name="description" content="Practicing kanas" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
-        <GuessCardHolder>{cards}</GuessCardHolder>
+        <AnimatePresence>
+          <PresentGuessCardHolder>{presentCards}</PresentGuessCardHolder>
+        </AnimatePresence>
       </main>
+      {focusedCard && (
+        <GuessCard guess={focusedCard} changeState={setGuessState} />
+      )}
     </div>
   );
 };
