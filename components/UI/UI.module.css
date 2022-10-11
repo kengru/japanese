@@ -21,8 +21,7 @@
   font-size: 2rem;
   background-color: white;
   border-radius: 10px;
-  box-shadow: 4px red;
-  transition: background-color 0.2s;
+  transition: background-color 0.3s;
 }
 
 .cardRight {
@@ -31,6 +30,22 @@
 
 .cardWrong {
   background-color: mediumvioletred;
+}
+
+.guessCard {
+  position: absolute;
+}
+
+.guessCardBack {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.3);
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
 }
 
 .card h2 {
@@ -50,4 +65,20 @@
   text-align: center;
   height: 2rem;
   width: 4rem;
+}
+
+/*
+  Footer Results
+*/
+
+.fRDiv {
+  display: flex;
+  background-color: white;
+  height: 5rem;
+  z-index: 100;
+  width: 10rem;
+}
+
+.fRDiv span {
+  background-color: white;
 }

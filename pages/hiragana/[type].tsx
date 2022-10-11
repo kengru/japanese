@@ -12,6 +12,7 @@ import {
   PresentGuessCard,
   PresentGuessCardHolder
 } from "../../components/UI/PresentGuessCard";
+import { FooterResults } from "../../components/UI/Footer";
 
 const Kanas: NextPage = () => {
   const { asPath } = useRouter();
@@ -45,14 +46,17 @@ const Kanas: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <main className={`${styles.main} ${styles.mainType}`}>
         <AnimatePresence>
           <PresentGuessCardHolder>{presentCards}</PresentGuessCardHolder>
         </AnimatePresence>
       </main>
+
       {focusedCard && (
         <GuessCard guess={focusedCard} changeState={setGuessState} />
       )}
+
+      <FooterResults />
     </div>
   );
 };

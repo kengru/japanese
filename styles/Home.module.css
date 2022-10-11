@@ -12,6 +12,10 @@
   align-items: center;
 }
 
+.mainType {
+  justify-content: flex-start;
+}
+
 .footer {
   display: flex;
   flex: 1;
