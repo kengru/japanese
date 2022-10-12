@@ -7,9 +7,9 @@ export function FooterResults() {
 
   return results ? (
     <div className={styles.fRDiv}>
-      <span>{results.total}</span>
-      <span>{results.failed}</span>
-      <span>{results.successful}</span>
+      <span>Total: {results.total}</span>
+      <span>Failed: {results.failed}</span>
+      <span>Sucessful: {results.successful}</span>
     </div>
   ) : null;
 }
