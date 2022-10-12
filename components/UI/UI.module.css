@@ -33,7 +33,27 @@
 }
 
 .guessCard {
+  font-size: 3rem;
+  padding: 5px;
+  height: 12rem;
+  width: 8rem;
+  z-index: 2;
+}
+
+/* .guessCard::after {
   position: absolute;
+  content: "";
+  z-index: 1;
+  background-color: aqua;
+  height: 13rem;
+  width: 9rem;
+} */
+
+.guessCard input {
+  font-size: 1.2rem;
+  text-align: center;
+  height: 2rem;
+  width: 5rem;
 }
 
 .guessCardBack {
@@ -60,13 +80,6 @@
   height: 2rem;
 }
 
-.card input {
-  font-size: 1.2rem;
-  text-align: center;
-  height: 2rem;
-  width: 4rem;
-}
-
 /*
   Footer Results
 */
@@ -85,7 +98,7 @@
   height: 110vh;
   width: 100%;
 
-  background-color: rgb(220, 220, 220, 0.1);
+  /* background-color: rgb(220, 220, 220, 0.1); */
   z-index: 100;
 }
 
