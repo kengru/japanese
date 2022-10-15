@@ -71,7 +71,6 @@ export const GameStateProvider: FunctionComponent<IGameStateProvider> = ({
   useEffect(() => {
     const done = guesses.every((g) => g.state !== "untouched");
     if (guesses.length > 0 && done) {
-      console.log("here");
       let f = 0;
       let s = 0;
       guesses.forEach((g) => {

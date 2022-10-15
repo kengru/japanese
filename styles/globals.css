@@ -24,3 +24,30 @@ a {
     background: black;
   }
 }
+
+/*
+  Variables
+*/
+:root {
+  --text-color-primary: white;
+  --card-background: #18171d;
+  --card-background-right: rgb(26, 178, 44);
+  --card-background-wrong: rgb(188, 30, 44);
+  --backdrop-background: rgba(255, 255, 255, 0.3);
+  --results-text-color: #dedbea;
+  --results-background-color: rgb(67, 52, 52, 0.8);
+  --category-border-color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color-primary: black;
+    --card-background: white;
+    --card-background-right: rgb(21, 150, 36);
+    --card-background-wrong: rgb(176, 29, 41);
+    --backdrop-background: rgba(255, 255, 255, 0.3);
+    --results-text-color: #18171d;
+    --results-background-color: rgb(220, 220, 220, 0.8);
+    --category-border-color: white;
+  }
+}

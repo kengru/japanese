@@ -28,7 +28,10 @@ const Kanas: NextPage = () => {
     () =>
       guesses.map((guess) => {
         return guess.state !== "untouched" ? (
-          <PresentGuessCard key={guess.answer} guess={guess} />
+          <PresentGuessCard
+            key={`${guess.answer}${guess.character}`}
+            guess={guess}
+          />
         ) : null;
       }),
     [guesses]
